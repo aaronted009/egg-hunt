@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import clsx from "clsx";
 
 export default function Carousel() {
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -44,8 +45,11 @@ export default function Carousel() {
                     <button
                         key={index}
                         onClick={() => goToSlide(index)}
-                        className={`w-5 h-1 rounded-l-lg ${currentIndex === index ? "bg-(--accent-color)" : "bg-gray-400"
-                            }`}
+                        className={clsx(
+                            "w-6 h-2",
+                            "rounded-full",
+                            currentIndex === index ? "bg-(--accent-color)" : "bg-gray-400"
+                        )}
                     ></button>
                 ))}
             </div>
