@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import clsx from "clsx";
+import { IoEgg } from "react-icons/io5";
 
 export default function Carousel() {
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -34,8 +35,11 @@ export default function Carousel() {
                 </div>
 
                 {/* Slide 2 */}
-                <div className="w-full flex-shrink-0 flex items-center justify-center bg-green-500 text-white">
-                    <h1 className="text-4xl font-bold">This is Slide 2</h1>
+                <div className="w-full flex-shrink-0 flex flex-col items-center justify-center">
+                    <span className="flex items-center justify-center space-x-2">
+                        <IoEgg className="text-4xl text-(--accent-color)" />
+                        <h2 className="text-3xl font-bold">EggHuntFun</h2>
+                    </span>
                 </div>
             </div>
 
