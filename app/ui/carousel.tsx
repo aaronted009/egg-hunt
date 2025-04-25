@@ -4,6 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import clsx from "clsx";
 import { IoEgg } from "react-icons/io5";
+import Link from "next/link";
 
 export default function Carousel() {
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -40,6 +41,7 @@ export default function Carousel() {
                         <IoEgg className="text-4xl text-(--accent-color)" />
                         <h2 className="text-3xl font-bold">EggHuntFun</h2>
                     </span>
+                    <Link href="#" className="px-4 py-2 bg-[var(--accent-color)] text-white font-bold rounded-full shadow-md hover:bg-opacity-90 focus:outline-none focus:ring-2 focus:ring-[var(--accent-color)] focus:ring-opacity-75">Start Egg Hunt</Link>
                 </div>
             </div>
 
