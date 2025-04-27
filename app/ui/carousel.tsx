@@ -41,7 +41,7 @@ export default function Carousel() {
                         <IoEgg className="text-4xl text-(--accent-color)" />
                         <h2 className="text-3xl font-bold">EggHuntFun</h2>
                     </span>
-                    <Link href="#" className="mt-4 px-4 py-2 bg-[var(--accent-color)] text-white font-bold rounded-full shadow-md hover:bg-opacity-90 focus:outline-none focus:ring-2 focus:ring-[var(--accent-color)] focus:ring-opacity-75">Start Egg Hunt</Link>
+                    <Link href="/game" className="mt-4 px-4 py-2 bg-[var(--accent-color)] text-white font-bold rounded-full shadow-md hover:bg-opacity-90 focus:outline-none focus:ring-2 focus:ring-[var(--accent-color)] focus:ring-opacity-75">Start Egg Hunt</Link>
                 </div>
             </div>
 
