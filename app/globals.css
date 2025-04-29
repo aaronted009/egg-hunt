@@ -4,6 +4,7 @@
   --background: #ffffff;
   --foreground: #171717;
   --accent-color: #de8c23;
+  --light-accent-color: #f2e2ce;
 }
 
 @theme inline {
