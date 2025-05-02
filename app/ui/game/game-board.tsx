@@ -15,7 +15,7 @@ function shuffleArray(array: string[]) {
     return array.sort(() => Math.random() - 0.5);
 }
 
-export default function GameBoard() {
+export default function GameBoard({ onGameCellClick }: { onGameCellClick: () => void }) {
     const [score, setScore] = useState(25);
     const [gameBoard] = useState(() =>
         shuffleArray(items).map((item) => ({ item, isRevealed: false }))
@@ -37,6 +37,7 @@ export default function GameBoard() {
                         key={index}
                         item={cell.item}
                         onClick={() => handleCellClick(cell.item)}
+                        startTimer={onGameCellClick}
                     />
                 ))}
             </div>

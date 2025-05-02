@@ -5,9 +5,11 @@ import { useState } from "react";
 export default function GameCell({
     item,
     onClick,
+    startTimer,
 }: {
     item: string;
     onClick: () => void;
+    startTimer: () => void;
 }) {
     const [isRevealed, setIsRevealed] = useState(false);
 
@@ -15,6 +17,7 @@ export default function GameCell({
         if (!isRevealed) {
             setIsRevealed(true);
             onClick();
+            startTimer();
         }
     };
 
