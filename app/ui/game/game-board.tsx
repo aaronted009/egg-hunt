@@ -16,16 +16,16 @@ function shuffleArray(array: string[]) {
 }
 
 export default function GameBoard({ onGameCellClick }: { onGameCellClick: () => void }) {
-    const [score, setScore] = useState(25);
+    const [score, setScore] = useState(2500);
     const [gameBoard] = useState(() =>
         shuffleArray(items).map((item) => ({ item, isRevealed: false }))
     );
 
     const handleCellClick = (item: string) => {
         if (item === "🥚") {
-            console.log("Egg found!");
+            setScore((prevScore) => prevScore + 100);
         } else {
-            setScore((prevScore) => prevScore - 1);
+            setScore((prevScore) => prevScore - 100);
         }
     };
 
