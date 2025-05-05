@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import GameCell from "./game-cell";
 
 const items = [
@@ -15,7 +15,7 @@ function shuffleArray(array: string[]) {
     return array.sort(() => Math.random() - 0.5);
 }
 
-export default function GameBoard({ onGameCellClick }: { onGameCellClick: () => void }) {
+export default function GameBoard({ onGameCellClick, onGameOver }: { onGameCellClick: () => void, onGameOver: () => void }) {
     const [score, setScore] = useState(2500);
     const [gameBoard] = useState(() =>
         shuffleArray(items).map((item) => ({ item, isRevealed: false }))
@@ -28,17 +28,18 @@ export default function GameBoard({ onGameCellClick }: { onGameCellClick: () => 
 
         if (item === "🥚") {
             setScore((prevScore) => prevScore + 100);
-            setEggsFound((prevEggsFound) => {
-                const newEggsFound = prevEggsFound + 1;
-                if (newEggsFound === 5) {
-                    setGameOver(true); // End the game when all 5 eggs are found
-                }
-                return newEggsFound;
-            });
+            setEggsFound((prevEggsFound) => prevEggsFound + 1);
         } else {
             setScore((prevScore) => prevScore - 100);
         }
     };
+
+    useEffect(() => {
+        if (eggsFound === 5) {
+            setGameOver(true); // End the game when all 5 eggs are found
+            onGameOver(); // Call the end game function
+        }
+    }, [eggsFound, onGameOver]);
 
     return (
         <div>
