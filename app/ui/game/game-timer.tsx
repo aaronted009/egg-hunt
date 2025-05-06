@@ -23,7 +23,7 @@ export default function GameTimer({ isRunning }: { isRunning: boolean }) {
 
     return (
         <div className="text-lg font-bold">
-            Timer: {time}s
+            Timer: {new Date(time * 1000).toISOString().substr(11, 8)}
         </div>
     );
 }
