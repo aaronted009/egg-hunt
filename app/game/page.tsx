@@ -42,6 +42,12 @@ export default function Game() {
     };
 
     useEffect(() => {
+        if (!gameOver && time > 0) {
+            setScore((prevScore) => prevScore - 1); // Decrease score over time
+        }
+    }, [gameOver, time]);
+
+    useEffect(() => {
         if (eggsFound === 5) {
             setGameOver(true); // End the game when all 5 eggs are found
             setIsTimerRunning(false); // Stop the timer
