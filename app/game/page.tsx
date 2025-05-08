@@ -51,6 +51,8 @@ export default function Game() {
         if (eggsFound === 5) {
             setGameOver(true); // End the game when all 5 eggs are found
             setIsTimerRunning(false); // Stop the timer
+            // Navigate to the score page with score and time as query parameters
+            window.location.href = `/score?score=${score}&timeTaken=${time}`;
         }
     }, [eggsFound]);
 

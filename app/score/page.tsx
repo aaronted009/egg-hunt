@@ -1,6 +1,12 @@
-import Link from "next/link"
+'use client'
 
-export default function Score({ score, timeTaken }: { score: number, timeTaken: number }) {
+import Link from "next/link"
+import { useSearchParams } from "next/navigation";
+
+export default function Score() {
+    const searchParams = useSearchParams();
+    const score = searchParams.get("score");
+    const timeTaken = searchParams.get("timeTaken");
     return (
         <div className="flex flex-col items-center justify-center h-screen bg-gray-100">
             <h1 className="text-4xl font-bold mb-4 text-(--accent-color)">Congratulations !</h1>
