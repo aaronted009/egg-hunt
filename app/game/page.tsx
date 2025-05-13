@@ -4,6 +4,7 @@ import GameHeader from "../ui/game/game-header";
 import GameBoard from "../ui/game/game-board";
 import StartGameTimer from "../ui/game/start-game-timer";
 import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 
 export default function Game() {
     const [isTimerRunning, setIsTimerRunning] = useState(false);
@@ -47,12 +48,15 @@ export default function Game() {
         }
     }, [gameOver, time]);
 
+    const router = useRouter();
     useEffect(() => {
         if (eggsFound === 5) {
             setGameOver(true); // End the game when all 5 eggs are found
             setIsTimerRunning(false); // Stop the timer
-            // Navigate to the score page with score and time as query parameters
-            window.location.href = `/score?score=${score}&timeTaken=${time}`;
+            // Save data to local storage
+            localStorage.setItem("gameData", JSON.stringify({ score, timeTaken: time }));
+            // Navigate to the score page
+            router.push("/score");
         }
     }, [eggsFound]);
 

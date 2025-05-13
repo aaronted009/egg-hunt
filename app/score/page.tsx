@@ -1,12 +1,30 @@
 'use client'
 
 import Link from "next/link"
-import { useSearchParams } from "next/navigation";
+import { useEffect, useState } from "react";
 
 export default function Score() {
-    const searchParams = useSearchParams();
-    const score = searchParams.get("score");
-    const timeTaken = searchParams.get("timeTaken");
+    const [gameData, setGameData] = useState<{ score: number; timeTaken: number } | null>(null);
+
+    useEffect(() => {
+        // Retrieve data from local storage
+        const data = localStorage.getItem("gameData");
+        if (data) {
+            setGameData(JSON.parse(data));
+        }
+    }, []);
+
+    if (!gameData) {
+        return (
+        <div className="flex flex-col items-center justify-center h-screen bg-gray-100">
+            <h1 className="text-4xl font-bold mb-4 text-(--accent-color)">Error</h1>
+            <p className="text-xl mb-2">No game data found!</p>
+            <Link href="/game" className="mt-4 px-4 py-2 bg-(--accent-color) text-white rounded">
+                Play
+            </Link>
+        </div>)
+    }
+    const { score, timeTaken } = gameData;
     return (
         <div className="flex flex-col items-center justify-center h-screen bg-gray-100">
             <h1 className="text-4xl font-bold mb-4 text-(--accent-color)">Congratulations !</h1>
