@@ -38,7 +38,7 @@ export default function Score() {
         Congratulations !
       </h1>
       <p className="text-xl mb-2">You've completed the Egg Hunt!</p>
-      <div className="w-1/6 rounded-[15] bg-white flex flex-col p-5 shadow-lg my-10">
+      <div className="w-xs rounded-[15] bg-white flex flex-col p-5 shadow-lg my-10 md:w-sm lg:w-1/4">
         <div className="flex flex-row justify-between">
           <span> Score:</span>{" "}
           <span className="text-2xl font-bold mb-2 text-(--accent-color)">
