@@ -2,7 +2,6 @@
 
 import GameHeader from "../ui/game/game-header";
 import GameBoard from "../ui/game/game-board";
-import StartGameTimer from "../ui/game/start-game-timer";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 
@@ -79,7 +78,6 @@ export default function Game() {
           gameOver={gameOver}
           score={score}
         />
-        <StartGameTimer onStart={handleStart} />
       </div>
     </>
   );
