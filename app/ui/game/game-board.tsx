@@ -50,7 +50,7 @@ export default function GameBoard({
 
   return (
     <div>
-      <div className="grid grid-cols-5 gap-4">
+      <div className="grid grid-cols-5 gap-2 md:gap-3">
         {gameBoard.map((cell, index) => (
           <GameCell
             key={index}

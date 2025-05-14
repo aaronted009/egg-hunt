@@ -26,7 +26,7 @@ export default function GameCell({
   return (
     <div
       onClick={handleClick}
-      className={`w-24 h-24 flex items-center justify-center text-xl font-bold rounded-lg cursor-pointer ${
+      className={`w-16 h-16 flex items-center justify-center text-xl font-bold rounded-lg cursor-pointer md:w-24 md:h-24 ${
         isRevealed
           ? "bg-[var(--accent-color)] text-white"
           : "bg-[var(--light-accent-color)]"
