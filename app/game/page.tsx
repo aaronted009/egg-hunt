@@ -76,7 +76,6 @@ export default function Game() {
           onGameCellClick={handleStart}
           handleCellClick={handleCellClick}
           gameOver={gameOver}
-          score={score}
         />
       </div>
     </>

@@ -39,12 +39,10 @@ export default function GameBoard({
   onGameCellClick,
   handleCellClick,
   gameOver,
-  score,
 }: {
   onGameCellClick: () => void;
   handleCellClick: (item: string) => void;
   gameOver: boolean;
-  score: number;
 }) {
   const [gameBoard] = useState(() =>
     shuffleArray(items).map((item) => ({ item, isRevealed: false }))
@@ -62,14 +60,6 @@ export default function GameBoard({
             disabled={gameOver || cell.isRevealed} // Disable cell if game is over or already revealed
           />
         ))}
-      </div>
-      <div className="mt-4 text-center">
-        <p className="text-lg font-bold">Score: {score}</p>
-        {gameOver && (
-          <p className="text-xl font-bold text-green-500">
-            Congratulations! You found all the eggs!
-          </p>
-        )}
       </div>
     </div>
   );
