@@ -43,7 +43,7 @@ export default function Game() {
 
   useEffect(() => {
     if (!gameOver && time > 0) {
-      setScore((prevScore) => prevScore - 1); // Decrease score over time
+      setScore((prevScore) => prevScore - 2); // Decrease score over time
     }
   }, [gameOver, time]);
 
