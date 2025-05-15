@@ -21,13 +21,14 @@ export default function Carousel() {
         style={{ transform: `translateX(-${currentIndex * 100}%)` }}
       >
         {/* Slide 1 */}
-        <div className="w-full flex-shrink-0 flex min-h-screen flex-col items-center justify-between p-24">
+        <div className="w-full flex-shrink-0 flex min-h-screen flex-col items-center p-10 md:p-24">
           <Image
             src="/assets/eggs.jpg"
             alt="Eggs"
             width={500}
             height={500}
             priority
+            className="w-96 h-96 sm:w-96 sm:h-96 object-contain mb-16 md:mb-auto"
           />
           <div className="text-center">
             <h1 className="text-4xl font-bold">EggHunt</h1>
